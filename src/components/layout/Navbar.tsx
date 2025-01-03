@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { BookOpen, Trophy, User } from 'lucide-react';
+import { BookOpen, Trophy, User, Home } from 'lucide-react';
 import type { RootState } from '../../store';
 
 const Navbar: React.FC = () => {
@@ -13,11 +13,24 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-4">
-            <BookOpen className="w-8 h-8" />
-            <span className="font-bold text-xl">DSA Master</span>
+            <button
+              onClick={() => navigate('/')}
+              className="flex items-center space-x-2 hover:text-indigo-200"
+            >
+              <BookOpen className="w-8 h-8" />
+              <span className="font-bold text-xl">DSA Master</span>
+            </button>
           </div>
           
           <div className="flex items-center space-x-6">
+            <button
+              onClick={() => navigate('/')}
+              className="flex items-center space-x-2 hover:text-indigo-200"
+            >
+              <Home className="w-5 h-5" />
+              <span>Home</span>
+            </button>
+
             <button
               onClick={() => navigate('/learn')}
               className="flex items-center space-x-2 hover:text-indigo-200"

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Mail, Lock, User } from 'lucide-react';
-import { setUser } from '../../store/slices/userSlice';
+import { loginUser, registerUser } from '../../store/slices/userSlice';
+import { AppDispatch, RootState } from '../../store';
 import InputField from './InputField';
 
 const AuthForm = () => {
@@ -13,23 +14,28 @@ const AuthForm = () => {
     password: '',
   });
   
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
+  const { loading, error } = useSelector((state: RootState) => state.user);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement actual authentication
-    // For now, simulate login/signup
+    
     if (isLogin) {
-      dispatch(setUser({
-        id: '1',
-        username: formData.username,
+      const result = await dispatch(loginUser({
         email: formData.email,
-        points: 0,
-        badges: [],
-        progress: []
+        password: formData.password,
       }));
-      navigate('/learn');
+      
+      if (loginUser.fulfilled.match(result)) {
+        navigate('/learn');
+      }
+    } else {
+      const result = await dispatch(registerUser(formData));
+      
+      if (registerUser.fulfilled.match(result)) {
+        navigate('/learn');
+      }
     }
   };
 
@@ -48,6 +54,12 @@ const AuthForm = () => {
             {isLogin ? 'Sign in to continue learning' : 'Start your learning journey'}
           </p>
         </div>
+
+        {error && (
+          <div className="bg-red-50 text-red-500 p-3 rounded-md text-sm">
+            {error}
+          </div>
+        )}
 
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {!isLogin && (
@@ -82,9 +94,10 @@ const AuthForm = () => {
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              disabled={loading}
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
             >
-              {isLogin ? 'Sign In' : 'Sign Up'}
+              {loading ? 'Loading...' : (isLogin ? 'Sign In' : 'Sign Up')}
             </button>
           </div>
 
