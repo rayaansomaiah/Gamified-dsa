@@ -18,15 +18,8 @@ const modules = [
     difficulty: 'Beginner'
   },
   {
-    title: 'Trees & Graphs',
-    description: 'Explore tree structures, binary trees, and basic graph representations.',
-    path: '/learn/trees',
-    icon: <Network className="w-6 h-6 text-indigo-600" />,
-    difficulty: 'Intermediate'
-  },
-  {
     title: 'Arrays',
-    description: 'Master array operations',
+    description: 'Learn about the basics of Arrays, how to get started with Array, learning, resources, problems.',
     path: '/learn/arrays',
     icon: <Database className="w-6 h-6 text-indigo-600" />,
     difficulty: 'Beginner'

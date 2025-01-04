@@ -10,6 +10,8 @@ import ProfilePage from './pages/ProfilePage';
 import LeaderboardPage from './pages/LeaderboardPage';
 import StackVisualizer from './components/learning/StackVisualizer';
 import BasicConceptsPage from './pages/BasicConceptsPage';
+import ArraysPage from './pages/ArraysPage';
+import BasicAlgorithmsPage from './pages/BasicAlgorithmsPage';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
               <Route path="/leaderboard" element={<LeaderboardPage />} />
               <Route path="/learn/stack" element={<StackVisualizer onOperation={(op) => console.log(op)} />} />
               <Route path="/learn/basics" element={<BasicConceptsPage />} />
+              <Route path="/learn/arrays" element={<ArraysPage />} />
+              <Route path="/learn/algorithms" element={<BasicAlgorithmsPage />} />
             </Routes>
           </main>
         </div>
@@ -33,4 +37,5 @@ function App() {
     </Provider>
   );
 }
+
 export default App;

@@ -1,17 +1,23 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import type { RootState } from '../store';
+import { logout } from '../store/slices/userSlice';
 import ProfileHeader from '../components/profile/ProfileHeader';
 import ProgressStats from '../components/profile/ProgressStats';
 import RecentActivity from '../components/profile/RecentActivity';
 
 const ProfilePage = () => {
+  const dispatch = useDispatch();
   const { currentUser, isAuthenticated } = useSelector((state: RootState) => state.user);
 
   if (!isAuthenticated || !currentUser) {
     return <Navigate to="/login" />;
   }
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
   // Mock data for demonstration
   const recentActivities = [
@@ -51,6 +57,13 @@ const ProfilePage = () => {
       />
       
       <RecentActivity activities={recentActivities} />
+
+      <button
+        onClick={handleLogout}
+        className="mt-6 px-4 py-2 bg-red-600 text-white rounded-lg shadow-md hover:bg-red-700"
+      >
+        Sign Out
+      </button>
     </div>
   );
 };
