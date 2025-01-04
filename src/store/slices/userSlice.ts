@@ -10,8 +10,8 @@ interface UserState {
 }
 
 const initialState: UserState = {
-  currentUser: null,
-  isAuthenticated: false,
+  currentUser: JSON.parse(localStorage.getItem('user') || 'null'),
+  isAuthenticated: !!localStorage.getItem('token'),
   loading: false,
   error: null,
 };
@@ -20,6 +20,7 @@ export const loginUser = createAsyncThunk(
   'user/login',
   async (credentials: { email: string; password: string }) => {
     const response = await authService.login(credentials);
+    localStorage.setItem('user', JSON.stringify(response));
     return response;
   }
 );
@@ -28,6 +29,7 @@ export const registerUser = createAsyncThunk(
   'user/register',
   async (userData: { username: string; email: string; password: string }) => {
     const response = await authService.register(userData);
+    localStorage.setItem('user', JSON.stringify(response));
     return response;
   }
 );
@@ -39,7 +41,8 @@ const userSlice = createSlice({
     logout: (state) => {
       state.currentUser = null;
       state.isAuthenticated = false;
-      authService.logout();
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
     },
     clearError: (state) => {
       state.error = null;

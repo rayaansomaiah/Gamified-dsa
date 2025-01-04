@@ -6,10 +6,9 @@ import Navbar from './components/layout/Navbar';
 import HomePage from './components/home/HomePage';
 import AuthForm from './components/auth/AuthForm';
 import LearnPage from './pages/LearnPage';
+import ProfilePage from './pages/ProfilePage';
 import StackVisualizer from './components/learning/StackVisualizer';
 import BasicConceptsPage from './pages/BasicConceptsPage';
-import ProtectedRoute from './components/routes/ProtectedRoute';
-
 
 function App() {
   return (
@@ -17,28 +16,20 @@ function App() {
       <Router>
         <div className="min-h-screen bg-gray-100">
           <Navbar />
-          <Routes>
-  <Route path="/" element={<HomePage />} />
-  <Route path="/login" element={<AuthForm />} />
-  <Route path="/learn" element={
-    <ProtectedRoute>
-      <LearnPage />
-    </ProtectedRoute>
-  } />
-  <Route path="/learn/stack" element={
-    <ProtectedRoute>
-      <StackVisualizer onOperation={(op) => console.log(op)} />
-    </ProtectedRoute>
-  } />
-  <Route path="/learn/basics" element={
-    <ProtectedRoute>
-      <BasicConceptsPage />
-    </ProtectedRoute>
-  } />
-</Routes>
+          <main>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/login" element={<AuthForm />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/learn" element={<LearnPage />} />
+              <Route path="/learn/stack" element={<StackVisualizer onOperation={(op) => console.log(op)} />} />
+              <Route path="/learn/basics" element={<BasicConceptsPage />} />
+            </Routes>
+          </main>
         </div>
       </Router>
     </Provider>
   );
 }
+
 export default App;

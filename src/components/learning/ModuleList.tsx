@@ -25,15 +25,15 @@ const modules = [
     difficulty: 'Intermediate'
   },
   {
-    title: 'Arrays & Linked Lists',
-    description: 'Master array operations and linked list implementations.',
+    title: 'Arrays',
+    description: 'Master array operations',
     path: '/learn/arrays',
     icon: <Database className="w-6 h-6 text-indigo-600" />,
     difficulty: 'Beginner'
   },
   {
-    title: 'Advanced Algorithms',
-    description: 'Deep dive into sorting, searching, and dynamic programming.',
+    title: 'Basic Algorithms',
+    description: 'Learn about sorting, searching, and basic algorithms.',
     path: '/learn/algorithms',
     icon: <GitBranch className="w-6 h-6 text-indigo-600" />,
     difficulty: 'Advanced'
