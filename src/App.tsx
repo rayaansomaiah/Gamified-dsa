@@ -7,6 +7,7 @@ import HomePage from './components/home/HomePage';
 import AuthForm from './components/auth/AuthForm';
 import LearnPage from './pages/LearnPage';
 import ProfilePage from './pages/ProfilePage';
+import LeaderboardPage from './pages/LeaderboardPage';
 import StackVisualizer from './components/learning/StackVisualizer';
 import BasicConceptsPage from './pages/BasicConceptsPage';
 
@@ -22,6 +23,7 @@ function App() {
               <Route path="/login" element={<AuthForm />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/learn" element={<LearnPage />} />
+              <Route path="/leaderboard" element={<LeaderboardPage />} />
               <Route path="/learn/stack" element={<StackVisualizer onOperation={(op) => console.log(op)} />} />
               <Route path="/learn/basics" element={<BasicConceptsPage />} />
             </Routes>
@@ -31,5 +33,4 @@ function App() {
     </Provider>
   );
 }
-
 export default App;
