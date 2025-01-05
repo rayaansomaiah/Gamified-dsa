@@ -1,6 +1,7 @@
 import React from 'react';
-import { Layers, Binary, GitBranch, Database, Network } from 'lucide-react';
+import { Layers, Binary, GitBranch, Database, Network, Calculator } from 'lucide-react';
 import LearningModule from './LearningModule';
+
 
 const modules = [
   {
@@ -9,6 +10,13 @@ const modules = [
     path: '/learn/stack',
     icon: <Layers className="w-6 h-6 text-indigo-600" />,
     difficulty: 'Beginner'
+  },
+  {
+    title: 'Infix to Postfix',
+    description: 'Master expression conversion with an interactive game that teaches operator precedence and stack usage.',
+    path: '/learn/infix-postfix',
+    icon: <Calculator className="w-6 h-6 text-indigo-600" />,
+    difficulty: 'Intermediate'
   },
   {
     title: 'Basic Concepts',

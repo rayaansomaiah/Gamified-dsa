@@ -1,0 +1,73 @@
+import React from 'react';
+import { Code, Filter, Search } from 'lucide-react';
+import ProblemCard from '../components/challenges/ProblemCard';
+
+const problems = [
+  {
+    id: '1',
+    title: 'Two Sum',
+    difficulty: 'Easy',
+    category: 'Arrays',
+    timeEstimate: '15 mins',
+    successRate: 75,
+  },
+  {
+    id: '2',
+    title: 'Valid Parentheses',
+    difficulty: 'Easy',
+    category: 'Stack',
+    timeEstimate: '20 mins',
+    successRate: 68,
+  },
+  {
+    id: '3',
+    title: 'Merge Sorted Arrays',
+    difficulty: 'Medium',
+    category: 'Arrays',
+    timeEstimate: '25 mins',
+    successRate: 55,
+  },
+  {
+    id: '4',
+    title: 'Binary Search',
+    difficulty: 'Easy',
+    category: 'Algorithms',
+    timeEstimate: '15 mins',
+    successRate: 72,
+  },
+] as const;
+
+const ProblemSolvingPage = () => {
+  return (
+    <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="flex justify-between items-center mb-8">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Practice Problems</h1>
+          <p className="text-gray-600">Solve coding challenges to improve your skills</p>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search problems..."
+              className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+            <Search className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
+          </div>
+          <button className="flex items-center gap-2 px-4 py-2 border rounded-lg hover:bg-gray-50">
+            <Filter className="w-5 h-5" />
+            Filter
+          </button>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {problems.map((problem) => (
+          <ProblemCard key={problem.id} {...problem} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default ProblemSolvingPage;

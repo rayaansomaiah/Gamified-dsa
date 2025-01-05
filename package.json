@@ -11,6 +11,7 @@
     "server": "node server/index.js"
   },
   "dependencies": {
+    "@hello-pangea/dnd": "^17.0.0",
     "@reduxjs/toolkit": "^2.2.1",
     "@types/express": "^4.17.21",
     "axios": "^1.6.7",
