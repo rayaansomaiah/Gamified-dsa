@@ -15,6 +15,11 @@ import InfixToPostfixGame from './components/learning/infixToPostfix/infixToPost
 import BasicConceptsPage from './pages/BasicConceptsPage';
 import ArraysPage from './pages/ArraysPage';
 import BasicAlgorithmsPage from './pages/BasicAlgorithmsPage';
+import ArraysQuiz from './components/quiz/ArraysQuiz';
+import AlgorithmsQuiz from './components/quiz/AlgorithmsQuiz';
+import ProtectedRoute from './components/routes/ProtectedRoute';
+import BasicConceptsQuiz from './components/quiz/BasicConceptsQuiz';
+
 
 function App() {
   return (
@@ -34,8 +39,19 @@ function App() {
               <Route path="/learn/stack" element={<StackVisualizer onOperation={(op) => console.log(op)} />} />
               <Route path="/learn/infix-postfix" element={<InfixToPostfixGame />} />
               <Route path="/learn/basics" element={<BasicConceptsPage />} />
+              <Route path="/quiz/basics" element={<BasicConceptsQuiz />} />
               <Route path="/learn/arrays" element={<ArraysPage />} />
               <Route path="/learn/algorithms" element={<BasicAlgorithmsPage />} />
+              <Route path="/quiz/arrays"element={<ArraysQuiz />} />
+              <Route path="/quiz/algorithms" element={<AlgorithmsQuiz />} />
+              <Route 
+                path="/problems" 
+                element={
+                  <ProtectedRoute>
+                    <ProblemSolvingPage />
+                  </ProtectedRoute>
+                }
+                />
             </Routes>
           </main>
         </div>
