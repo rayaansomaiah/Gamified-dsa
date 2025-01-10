@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './config/db.js';
 import userRoutes from './routes/userRoutes.js';
-import quizRoutes from './routes/QuizRoutes.js';
+import quizRoutes from './routes/quizRoutes.js';
 
 dotenv.config();
 
