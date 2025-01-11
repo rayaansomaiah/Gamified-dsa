@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './config/db.js';
 import userRoutes from './routes/userRoutes.js';
-import quizRoutes from './routes/quizRoutes.js';
+import quizRoutes from './routes/QuizRoutes.js';
 
 dotenv.config();
 
@@ -11,6 +11,7 @@ connectDB();
 
 
 const app = express();
+
 
 app.use(cors());
 app.use(express.json());
