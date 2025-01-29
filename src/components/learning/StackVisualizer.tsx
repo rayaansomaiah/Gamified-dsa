@@ -9,22 +9,31 @@ interface StackVisualizerProps {
 const StackVisualizer: React.FC<StackVisualizerProps> = ({ onOperation }) => {
   const [stack, setStack] = useState<number[]>([]);
   const [inputValue, setInputValue] = useState('');
+  const [stackSize, setStackSize] = useState<number | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handlePush = () => {
     const value = parseInt(inputValue);
     if (!isNaN(value)) {
-      setStack([...stack, value]);
-      onOperation({
-        type: 'push',
-        value,
-        timestamp: new Date(),
-      });
-      setInputValue('');
+      if (stackSize !== null && stack.length >= stackSize) {
+        setError('Stack Overflow');
+      } else {
+        setStack([...stack, value]);
+        onOperation({
+          type: 'push',
+          value,
+          timestamp: new Date(),
+        });
+        setInputValue('');
+        setError(null);
+      }
     }
   };
 
   const handlePop = () => {
-    if (stack.length > 0) {
+    if (stack.length === 0) {
+      setError('Stack Underflow');
+    } else {
       const newStack = [...stack];
       newStack.pop();
       setStack(newStack);
@@ -32,6 +41,16 @@ const StackVisualizer: React.FC<StackVisualizerProps> = ({ onOperation }) => {
         type: 'pop',
         timestamp: new Date(),
       });
+      setError(null);
+    }
+  };
+
+  const handleStackSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const size = parseInt(e.target.value);
+    if (!isNaN(size) && size > 0) {
+      setStackSize(size);
+      setStack([]);
+      setError(null);
     }
   };
 
@@ -66,7 +85,19 @@ const StackVisualizer: React.FC<StackVisualizerProps> = ({ onOperation }) => {
         </button>
       </div>
 
-      <div className="w-48 border-2 border-gray-300 rounded-lg p-4">
+      <div className="flex space-x-4 mt-4">
+        <input
+          type="number"
+          value={stackSize !== null ? stackSize : ''}
+          onChange={handleStackSizeChange}
+          className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          placeholder="Set stack size"
+        />
+      </div>
+
+      {error && <p className="text-red-500">{error}</p>}
+
+      <div className="w-48 border-2 border-gray-300 rounded-lg p-4 mt-4">
         {stack.length === 0 ? (
           <p className="text-gray-500 text-center">Stack is empty</p>
         ) : (

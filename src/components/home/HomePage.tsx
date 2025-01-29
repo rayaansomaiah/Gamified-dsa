@@ -10,7 +10,7 @@ import { dsaFacts, featuredQuizzes, dailyChallenges } from './homeData.ts';
 
 const HomePage = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8 ">
+    <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Hero Section */}
       <section className="text-center mb-16">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">

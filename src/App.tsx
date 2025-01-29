@@ -20,7 +20,7 @@ import ArraysQuiz from './components/quiz/ArraysQuiz';
 import AlgorithmsQuiz from './components/quiz/AlgorithmsQuiz';
 import ProtectedRoute from './components/routes/ProtectedRoute';
 import BasicConceptsQuiz from './components/quiz/BasicConceptsQuiz';
-
+import QuizQuestionPage from './pages/QuizQuestionPage';
 
 function App() {
   return (
@@ -46,6 +46,7 @@ function App() {
               <Route path="/learn/algorithms" element={<BasicAlgorithmsPage />} />
               <Route path="/quiz/arrays"element={<ArraysQuiz />} />
               <Route path="/quiz/algorithms" element={<AlgorithmsQuiz />} />
+              <Route path="/quiz/:id" element={<QuizQuestionPage />} />
               <Route 
                 path="/problems" 
                 element={
