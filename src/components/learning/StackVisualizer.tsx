@@ -54,6 +54,33 @@ const StackVisualizer: React.FC<StackVisualizerProps> = ({ onOperation }) => {
     }
   };
 
+  const stackPythonCode = `
+class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def push(self, value):
+        self.stack.append(value)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.stack.pop()
+        else:
+            return "Stack Underflow"
+
+    def peek(self):
+        if not self.is_empty():
+            return self.stack[-1]
+        else:
+            return "Stack is empty"
+
+    def is_empty(self):
+        return len(self.stack) == 0
+
+    def size(self):
+        return len(self.stack)
+`;
+
   return (
     <div className="flex flex-col items-center space-y-6 p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-2xl font-bold text-gray-800">Stack Visualization</h2>
@@ -112,6 +139,15 @@ const StackVisualizer: React.FC<StackVisualizerProps> = ({ onOperation }) => {
             ))}
           </div>
         )}
+      </div>
+
+      <div className="w-full mt-8">
+        <h3 className="text-xl font-bold text-gray-800 mb-4">Python Stack Implementation</h3>
+        <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
+          <code className="language-python">
+            {stackPythonCode}
+          </code>
+        </pre>
       </div>
     </div>
   );

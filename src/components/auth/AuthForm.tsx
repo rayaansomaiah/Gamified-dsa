@@ -5,7 +5,7 @@ import { Mail, Lock, User } from 'lucide-react';
 import { loginUser, registerUser } from '../../store/slices/userSlice';
 import { AppDispatch, RootState } from '../../store';
 import InputField from './InputField';
-// import c
+
 
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);

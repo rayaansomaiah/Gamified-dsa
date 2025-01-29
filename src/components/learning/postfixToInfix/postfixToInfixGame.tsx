@@ -87,6 +87,21 @@ const PostfixToInfixGame: React.FC = () => {
     `;
   };
 
+  const pythonCode = `
+def postfix_to_infix(expression):
+    stack = []
+
+    for char in expression:
+        if char.isalnum():
+            stack.append(char)
+        else:
+            operand2 = stack.pop()
+            operand1 = stack.pop()
+            stack.append(f'({operand1}{char}{operand2})')
+
+    return stack.pop()
+`;
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -157,6 +172,14 @@ const PostfixToInfixGame: React.FC = () => {
                 </ol>
               </div>
             </div>
+          </div>
+          <div className="w-full mt-8">
+            <h3 className="text-xl font-bold text-gray-800 mb-4">Python Postfix to Infix Implementation</h3>
+            <pre className="bg-gray-300 p-4 rounded-lg overflow-x-auto">
+              <code className="language-python">
+                {pythonCode}
+              </code>
+            </pre>
           </div>
         </div>
       </div>
