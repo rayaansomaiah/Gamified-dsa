@@ -33,7 +33,7 @@ const HomePage = () => {
       {/* DSA Fact */}
       <section className="mb-16">
         <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-          <Brain className="w-6 h-6 text-blue-600" />
+          <Brain className="w-6 h-6 text-indigo-600" />
           DSA Facts
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
