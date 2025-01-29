@@ -80,6 +80,11 @@ const HomePage = () => {
           </div>
         </section>
       </div>
+
+      {/* Footer */}
+      <footer className="text-center py-4 bg-green-600 text-white mt-16">
+        © 2025 DSA Master. All rights reserved.
+      </footer>
     </div>
   );
 };
