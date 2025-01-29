@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
   const { currentUser } = useSelector((state: RootState) => state.user);
 
   return (
-    <nav className="bg-indigo-600 text-white shadow-lg">
+    <nav className="bg-orange-600 text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-4">
