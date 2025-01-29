@@ -21,7 +21,7 @@ const LeaderboardTabs: React.FC<TabProps> = ({ activeTab, onTabChange }) => {
           onClick={() => onTabChange(tab.id)}
           className={`flex items-center gap-2 px-4 py-2 rounded-md ${
             activeTab === tab.id
-              ? 'bg-indigo-600 text-white'
+              ? 'bg-green-600 text-white'
               : 'text-gray-600 hover:bg-gray-100'
           }`}
         >
