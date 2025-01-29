@@ -28,9 +28,11 @@ const HomePage = () => {
             Start Learning
           </Link>
         </div>
+
+
       </section>
 
-      {/* DSA Facts */}
+      {/* DSA Fact */}
       <section className="mb-16">
         <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
           <Brain className="w-6 h-6 text-red-600" />
