@@ -10,7 +10,7 @@ import { dsaFacts, featuredQuizzes, dailyChallenges } from './homeData.ts';
 
 const HomePage = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="max-w-7xl mx-auto px-4 py-8 ">
       {/* Hero Section */}
       <section className="text-center mb-16">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -22,7 +22,7 @@ const HomePage = () => {
         <div className="flex justify-center gap-4">
           <Link
             to="/learn"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-800"
           >
             <BookOpen className="w-5 h-5" />
             Start Learning
