@@ -41,7 +41,7 @@ interface DsaFact {
       path: "/quiz/arrays"
     },
     {
-      title: "Stack & Queue Basics",
+      title: "Stack Basics",
       questionCount: 8,
       category: "Data Structures",
       path: "/quiz/stack-queue"
