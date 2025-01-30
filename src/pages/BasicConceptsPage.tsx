@@ -149,11 +149,11 @@ const BasicConceptsPage = () => {
         <div className="bg-white rounded-lg shadow-md p-4 mb-6">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm font-medium text-gray-600">Your Progress</span>
-            <span className="text-sm font-medium text-indigo-600">{Math.round(progress)}%</span>
+            <span className="text-sm font-medium text-blue-600">{Math.round(progress)}%</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2">
             <div 
-              className="bg-indigo-600 h-2 rounded-full transition-all duration-500" 
+              className="bg-blue-600 h-2 rounded-full transition-all duration-500" 
               style={{ width: `${progress}%` }}
             />
           </div>

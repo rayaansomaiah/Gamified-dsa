@@ -9,10 +9,10 @@ const Navbar: React.FC = () => {
   const { currentUser } = useSelector((state: RootState) => state.user);
 
   return (
-    <nav className="bg-indigo-600 text-white shadow-lg">
-      <div className="max-w-7xl mx-auto px-4">
+    <nav className="bg-green-600 text-white shadow-lg">
+      <div className="max-w-7xl mx-auto px-2">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-">
             <button
               onClick={() => navigate('/')}
               className="flex items-center space-x-2 hover:text-indigo-200"
@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
               <span className="font-bold text-xl">DSA Master</span>
             </button>
           </div>
-          
+
           <div className="flex items-center space-x-6">
             <button
               onClick={() => navigate('/')}
@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
               <HelpCircle className="w-5 h-5" />
               <span>Quizzes</span>
             </button>
-            
+
             <button
               onClick={() => navigate('/leaderboard')}
               className="flex items-center space-x-2 hover:text-indigo-200"
@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
             {currentUser ? (
               <button
                 onClick={() => navigate('/profile')}
-                className="flex items-center space-x-2 hover:text-indigo-200"
+                className="flex items-center space-x-2 hover:text-red-200"
               >
                 <User className="w-5 h-5" />
                 <span>{currentUser.username}</span>
@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
             ) : (
               <button
                 onClick={() => navigate('/login')}
-                className="bg-white text-indigo-600 px-4 py-2 rounded-md hover:bg-indigo-100"
+                className="bg-white text-black px-6 py-2 rounded-md hover:bg-indigo-100"
               >
                 Login
               </button>

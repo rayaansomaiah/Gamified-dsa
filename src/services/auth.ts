@@ -11,17 +11,17 @@ interface RegisterData extends LoginCredentials {
 }
 
 export const login = async (credentials: LoginCredentials) => {
-  const { data } = await api.post('/users/login', credentials);
-  localStorage.setItem('token', data.token);
-  return data;
+  const response = await api.post('/users/login', credentials);
+  localStorage.setItem('token', response.data.token);
+  return response.data;
 };
 
 export const register = async (userData: RegisterData) => {
-  const { data } = await api.post('/users/register', userData);
-  localStorage.setItem('token', data.token);
-  return data;
+  const response = await api.post('/users/register', userData);
+  localStorage.setItem('token', response.data.token);
+  return response.data;
 };
 
 export const logout = () => {
   localStorage.removeItem('token');
-};
+}
