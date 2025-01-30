@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.REACT_APP_BACKEND_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.REACT_APP_BACKEND_URL || 'https://gamified-dsa-backend-production.up.railway.app';
 
 const api = axios.create({
   baseURL: API_URL,
