@@ -1,6 +1,5 @@
 import React from 'react';
-import { Code, Filter, Search } from 'lucide-react';
-import ProblemCard from '../components/challenges/ProblemCard';
+import { Filter, Search } from 'lucide-react';
 
 const problems = [
   {
@@ -38,6 +37,34 @@ const problems = [
 ] as const;
 
 const ProblemSolvingPage = () => {
+  const handleProblemClick = (problemId) => {
+    // Define the URLs for each problem
+    const problemUrls = {
+      '1': 'https://leetcode.com/problems/two-sum/description/',
+      '2': 'https://leetcode.com/problems/valid-parentheses/description/',
+      '3': 'https://leetcode.com/problems/merge-sorted-array/description/',
+      '4': 'https://leetcode.com/problems/binary-search/description/',
+    };
+
+    // Redirect to the corresponding URL
+    window.location.href = problemUrls[problemId];
+  };
+
+  const ProblemCard = ({ id, title, difficulty, category, timeEstimate, successRate, onClick }) => {
+    return (
+      <div
+        className="border p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+        onClick={onClick}
+      >
+        <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
+        <p className="text-gray-600">{category}</p>
+        <p className="text-gray-600">Difficulty: {difficulty}</p>
+        <p className="text-gray-600">Time Estimate: {timeEstimate}</p>
+        <p className="text-gray-600">Success Rate: {successRate}%</p>
+      </div>
+    );
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
@@ -63,11 +90,15 @@ const ProblemSolvingPage = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {problems.map((problem) => (
-          <ProblemCard key={problem.id} {...problem} />
+          <ProblemCard
+            key={problem.id}
+            {...problem}
+            onClick={() => handleProblemClick(problem.id)}
+          />
         ))}
       </div>
     </div>
   );
-}
+};
 
 export default ProblemSolvingPage;
