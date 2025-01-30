@@ -27,6 +27,14 @@ const quizzes = [
     timeLimit: '20 mins',
     points: 120,
   },
+  {
+    id: '4',
+    title: 'Stack Operations',
+    description: 'Assess your knowledge of stack operations and their implementations.',
+    questionCount: 15,
+    timeLimit: '25 mins',
+    points: 150,
+  },
 ] as const;
 
 const QuizListPage = () => {

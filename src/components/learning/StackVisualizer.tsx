@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowDown, ArrowUp } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import type { StackOperation } from '../../types';
 
 interface StackVisualizerProps {
@@ -11,6 +12,7 @@ const StackVisualizer: React.FC<StackVisualizerProps> = ({ onOperation }) => {
   const [inputValue, setInputValue] = useState('');
   const [stackSize, setStackSize] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const handlePush = () => {
     const value = parseInt(inputValue);
@@ -105,7 +107,6 @@ class Stack:
         <button
           onClick={handlePop}
           className="flex items-center space-x-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
-          //disabled={stack.length === 0}
         >
           <ArrowUp className="w-5 h-5" />
           <span>Pop</span>
@@ -140,6 +141,13 @@ class Stack:
           </div>
         )}
       </div>
+
+      <button
+        onClick={() => navigate('/quiz/4')}
+        className="mt-6 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+      >
+        Take Stack Operations Quiz
+      </button>
 
       <div className="w-full mt-8">
         <h3 className="text-xl font-bold text-gray-800 mb-4">Python Stack Implementation</h3>

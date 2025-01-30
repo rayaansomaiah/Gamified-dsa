@@ -44,7 +44,7 @@ interface DsaFact {
       title: "Stack Operations Basics",
       questionCount: 8,
       category: "Data Structures",
-      path: "/quiz/stack-queue"
+      path: "/quiz/4"
     }
   ];
   

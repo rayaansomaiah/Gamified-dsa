@@ -23,4 +23,9 @@ api.getUserProgress = (userId: string) => {
   return api.get(`/users/${userId}/progress`);
 };
 
+// Add an endpoint to update user progress
+api.updateUserProgress = (data: { quizId: string; score: number }) => {
+  return api.post('/users/update-progress', data);
+};
+
 export default api;
