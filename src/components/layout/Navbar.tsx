@@ -10,9 +10,9 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="bg-green-600 text-white shadow-lg">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-2">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-">
             <button
               onClick={() => navigate('/')}
               className="flex items-center space-x-2 hover:text-indigo-200"
@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
             ) : (
               <button
                 onClick={() => navigate('/login')}
-                className="bg-white text-indigo-600 px-4 py-2 rounded-md hover:bg-indigo-100"
+                className="bg-white text-black px-6 py-2 rounded-md hover:bg-indigo-100"
               >
                 Login
               </button>

@@ -18,6 +18,12 @@ const modules = [
     icon: <Calculator className="w-6 h-6 text-indigo-600" />,
     difficulty: 'Intermediate'
   },
+  {title: 'Postfix to Infix',
+    description: 'Master expression conversion with an interactive game that teaches operator precedence and stack usage.',
+    path: '/learn/postfix-infix',
+    icon: <Calculator className="w-6 h-6 text-indigo-600" />,
+    difficulty: 'Intermediate'
+  },
   {
     title: 'Basic Concepts',
     description: 'Introduction to fundamental data structure concepts, time complexity, and space complexity.',

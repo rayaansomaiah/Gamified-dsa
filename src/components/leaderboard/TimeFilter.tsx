@@ -22,7 +22,7 @@ const TimeFilter: React.FC<TimeFilterProps> = ({ activeFilter, onFilterChange })
           onClick={() => onFilterChange(filter.id)}
           className={`px-3 py-1 rounded-md text-sm ${
             activeFilter === filter.id
-              ? 'bg-indigo-600 text-white'
+              ? 'bg-green-600 text-white'
               : 'text-gray-600 hover:bg-gray-100'
           }`}
         >

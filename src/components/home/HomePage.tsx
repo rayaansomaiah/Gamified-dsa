@@ -13,7 +13,7 @@ const HomePage = () => {
     <div>
       {/* Hero Section with Background GIF */}
       <div
-        className="w-full relative bg-cover bg-center h-[400px] flex items-center justify-center mb-16"
+        className="w-full relative bg-cover bg-center h-[450px] flex items-center justify-center mb-16"
         style={{ backgroundImage: `url('https://i.pinimg.com/originals/8d/62/1f/8d621f66f551b6a39072473d52280ff0.gif')` }}
       >
         {/* Overlay for better text visibility */}
@@ -40,7 +40,7 @@ const HomePage = () => {
       </div>
 
       {/* Main Content Container */}
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto">
         {/* DSA Facts Section */}
         <section className="mb-16">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
