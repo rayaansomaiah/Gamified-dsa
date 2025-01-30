@@ -49,7 +49,7 @@ interface ProblemCardProps {
 const ProblemCard: React.FC<ProblemCardProps> = ({ id, title, difficulty, category, timeEstimate, successRate, onClick }) => {
   return (
     <div
-      className="border p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+      className="border p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer bg-gray-100"
       onClick={onClick}
     >
       <h2 className="text-xl font-semibold text-gray-900">{title}</h2>

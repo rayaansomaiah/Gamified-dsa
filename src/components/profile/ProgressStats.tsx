@@ -1,33 +1,53 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { CheckCircle, Clock, Target } from 'lucide-react';
+import api from '../../services/api';
 
 interface ProgressStatsProps {
+  userId: string;
+}
+
+interface ProgressData {
   completedModules: number;
   totalModules: number;
   completedChallenges: number;
   solvedQuizzes: number;
 }
 
-const ProgressStats: React.FC<ProgressStatsProps> = ({
-  completedModules,
-  totalModules,
-  completedChallenges,
-  solvedQuizzes,
-}) => {
+const ProgressStats: React.FC<ProgressStatsProps> = ({ userId }) => {
+  const [progress, setProgress] = useState<ProgressData>({
+    completedModules: 0,
+    totalModules: 0,
+    completedChallenges: 0,
+    solvedQuizzes: 0,
+  });
+
+  useEffect(() => {
+    const fetchProgress = async () => {
+      try {
+        const response = await api.get(`/users/${userId}/progress`);
+        setProgress(response.data);
+      } catch (error) {
+        console.error('Error fetching progress data:', error);
+      }
+    };
+
+    fetchProgress();
+  }, [userId]);
+
   const stats = [
     {
       icon: <Target className="w-8 h-8 text-indigo-600" />,
-      value: `${completedModules}/${totalModules}`,
+      value: `${progress.completedModules}/${progress.totalModules}`,
       label: 'Modules Completed',
     },
     {
       icon: <CheckCircle className="w-8 h-8 text-green-600" />,
-      value: completedChallenges,
+      value: progress.completedChallenges,
       label: 'Challenges Solved',
     },
     {
       icon: <Clock className="w-8 h-8 text-purple-600" />,
-      value: solvedQuizzes,
+      value: progress.solvedQuizzes,
       label: 'Quizzes Completed',
     },
   ];
@@ -48,4 +68,5 @@ const ProgressStats: React.FC<ProgressStatsProps> = ({
     </div>
   );
 };
+
 export default ProgressStats;

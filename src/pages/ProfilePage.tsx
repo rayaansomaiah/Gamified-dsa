@@ -50,6 +50,7 @@ const ProfilePage = () => {
       <ProfileHeader user={currentUser} />
       
       <ProgressStats
+        userId={currentUser.id}
         completedModules={2}
         totalModules={5}
         completedChallenges={3}

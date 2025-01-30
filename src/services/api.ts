@@ -18,4 +18,9 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
+// Add an endpoint to fetch user progress
+api.getUserProgress = (userId: string) => {
+  return api.get(`/users/${userId}/progress`);
+};
+
 export default api;

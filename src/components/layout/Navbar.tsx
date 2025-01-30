@@ -47,21 +47,25 @@ const Navbar: React.FC = () => {
               <span>Problems</span>
             </button>
 
-            <button
-              onClick={() => navigate('/quizzes')}
-              className="flex items-center space-x-2 hover:text-indigo-200"
-            >
-              <HelpCircle className="w-5 h-5" />
-              <span>Quizzes</span>
-            </button>
+            {currentUser && (
+              <button
+                onClick={() => navigate('/quizzes')}
+                className="flex items-center space-x-2 hover:text-indigo-200"
+              >
+                <HelpCircle className="w-5 h-5" />
+                <span>Quizzes</span>
+              </button>
+            )}
 
-            <button
-              onClick={() => navigate('/leaderboard')}
-              className="flex items-center space-x-2 hover:text-indigo-200"
-            >
-              <Trophy className="w-5 h-5" />
-              <span>Leaderboard</span>
-            </button>
+            {currentUser && (
+              <button
+                onClick={() => navigate('/leaderboard')}
+                className="flex items-center space-x-2 hover:text-indigo-200"
+              >
+                <Trophy className="w-5 h-5" />
+                <span>Leaderboard</span>
+              </button>
+            )}
 
             {currentUser ? (
               <button
