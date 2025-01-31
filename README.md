@@ -1,15 +1,15 @@
  
 
 ```markdown
-# Gamified DSA 🎮📚  
+Gamified DSA 🎮📚  
 
 A gamified platform to make learning Data Structures and Algorithms (DSA) interactive and engaging! Built using React (TypeScript) with Tailwind CSS, following the MVC architecture for maintainability and scalability.  
 
-## 🚀 Getting Started  
+🚀 Getting Started  
 
 Follow these steps to set up the project locally:  
 
-### 1️⃣ Clone the Repository  
+1️⃣ Clone the Repository  
 ```sh
 git clone https://github.com/Preetham0000/Gamified-dsa.git
 ```
@@ -25,7 +25,11 @@ npm install
 
 3️⃣ Start the Development Server  
 ```sh
-npm run dev
+npm run server (To run locally)
+
+FOLLOWED BY 
+
+npm run dev 
 ```
 This will start the application in development mode. You can access it at:  
 👉 `http://localhost:3000`
@@ -47,9 +51,9 @@ This will start the application in development mode. You can access it at:
 
  🏗️ Tech Stack  
 
-- **Frontend:** React (TypeScript), Tailwind CSS  
-- **State Management:** React Hooks  
-- **Architecture:** MVC (Model-View-Controller)  
+- Frontend: React (TypeScript), Tailwind CSS  
+- State Management: React Hooks  
+- Architecture: MVC (Model-View-Controller)  
 
  📌 Features  
 
