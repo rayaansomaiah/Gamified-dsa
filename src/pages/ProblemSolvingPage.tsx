@@ -36,35 +36,10 @@ const problems = [
   },
 ] as const;
 
-interface ProblemCardProps {
-  id: string;
-  title: string;
-  difficulty: string;
-  category: string;
-  timeEstimate: string;
-  successRate: number;
-  onClick: () => void;
-}
-
-const ProblemCard: React.FC<ProblemCardProps> = ({ id, title, difficulty, category, timeEstimate, successRate, onClick }) => {
-  return (
-    <div
-      className="border p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer bg-gray-100"
-      onClick={onClick}
-    >
-      <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
-      <p className="text-gray-600">{category}</p>
-      <p className="text-gray-600">Difficulty: {difficulty}</p>
-      <p className="text-gray-600">Time Estimate: {timeEstimate}</p>
-      <p className="text-gray-600">Success Rate: {successRate}%</p>
-    </div>
-  );
-};
-
 const ProblemSolvingPage = () => {
-  const handleProblemClick = (problemId: '1' | '2' | '3' | '4') => {
+  const handleProblemClick = (problemId: string) => {
     // Define the URLs for each problem
-    const problemUrls: { [key in '1' | '2' | '3' | '4']: string } = {
+    const problemUrls = {
       '1': 'https://leetcode.com/problems/two-sum/description/',
       '2': 'https://leetcode.com/problems/valid-parentheses/description/',
       '3': 'https://leetcode.com/problems/merge-sorted-array/description/',
@@ -73,6 +48,21 @@ const ProblemSolvingPage = () => {
 
     // Redirect to the corresponding URL
     window.location.href = problemUrls[problemId];
+  };
+
+  const ProblemCard = ({ id, title, difficulty, category, timeEstimate, successRate, onClick }) => {
+    return (
+      <div
+        className="border p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+        onClick={onClick}
+      >
+        <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
+        <p className="text-gray-600">{category}</p>
+        <p className="text-gray-600">Difficulty: {difficulty}</p>
+        <p className="text-gray-600">Time Estimate: {timeEstimate}</p>
+        <p className="text-gray-600">Success Rate: {successRate}%</p>
+      </div>
+    );
   };
 
   return (
